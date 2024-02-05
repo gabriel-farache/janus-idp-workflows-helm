@@ -3,6 +3,39 @@ entries:
   janus-idp-workflows:
   - apiVersion: v2
     appVersion: 0.0.1
+    created: "2024-02-05T16:01:13.894966018Z"
+    dependencies:
+    - name: backstage
+      repository: https://janus-idp.github.io/helm-backstage
+      version: 2.11.4
+    - condition: postgresql-persistent.enabled
+      name: postgresql-persistent
+      repository: https://sclorg.github.io/helm-charts
+      version: 0.0.3
+    - condition: serverless-knative.enabled
+      name: serverless-knative
+      repository: file://charts/serverless-knative
+      version: 0.1.0
+    - condition: sonataflow-operator.enabled
+      name: sonataflow-operator
+      repository: file://charts/sonataflow-operator
+      version: 0.1.1
+    - name: devmode
+      repository: file://charts/devmode
+      version: 0.1.0
+    - condition: workflows.enabled
+      name: workflows
+      repository: https://parodos.dev/serverless-workflows-helm
+      version: 0.2.0
+    description: A Helm chart for Kubernetes
+    digest: 8dc09eb5acee5e5ce39858565826fde2ac0bd7d0d0bf9c86235dde0cae358df2
+    name: janus-idp-workflows
+    type: application
+    urls:
+    - https://github.com/gabriel-farache/janus-idp-workflows-helm/releases/download/janus-idp-workflows-0.2.2/janus-idp-workflows-0.2.2.tgz
+    version: 0.2.2
+  - apiVersion: v2
+    appVersion: 0.0.1
     created: "2024-02-05T10:12:02.551873206Z"
     dependencies:
     - name: backstage
@@ -222,4 +255,4 @@ entries:
     urls:
     - https://github.com/gabriel-farache/janus-idp-workflows-helm/releases/download/janus-idp-workflows-0.1.1/janus-idp-workflows-0.1.1.tgz
     version: 0.1.1
-generated: "2024-02-05T10:12:02.551915025Z"
+generated: "2024-02-05T16:01:13.894996826Z"
